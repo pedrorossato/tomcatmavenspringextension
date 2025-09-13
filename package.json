@@ -1,0 +1,127 @@
+{
+  "name": "tomcatmavenspringextension",
+  "displayName": "Tomcat Maven Spring Extension",
+  "description": "Extensão independente para desenvolvimento com projetos Java Spring multimódulo usando Tomcat com hotswap e debug nativo",
+  "version": "0.2.0",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [ "*" ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "tomcatmavenspring.configure",
+        "title": "Configure Extension",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.setupEnvironment",
+        "title": "Setup Environment",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.createContext",
+        "title": "Create Context",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.startTomcat",
+        "title": "Start Tomcat (Debug)",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.stopTomcat",
+        "title": "Stop Tomcat",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.reloadTomcat",
+        "title": "Reload Application",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.updateClasses",
+        "title": "Update Classes (Hotswap)",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.updateResources",
+        "title": "Update Resources",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.fullRebuild",
+        "title": "Full Rebuild Exploded",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.showAppLogs",
+        "title": "Show Application Logs",
+        "category": "Tomcat"
+      },
+      {
+        "command": "tomcatmavenspring.showTomcatLogs",
+        "title": "Show Tomcat Logs",
+        "category": "Tomcat"
+      }
+    ],
+    "configuration": {
+      "title": "Tomcat Maven Spring",
+      "properties": {
+        "tomcatmavenspring.projectPath": {
+          "type": "string",
+          "default": "",
+          "description": "Caminho para o projeto Spring (onde estão os scripts e arquivo de configuração)"
+        },
+        "tomcatmavenspring.envFileName": {
+          "type": "string",
+          "default": "tomcat.env",
+          "description": "Nome do arquivo de configuração do ambiente (ex: tomcat.env, spring.env, netris.env)"
+        },
+        "tomcatmavenspring.scriptsPath": {
+          "type": "string",
+          "default": "scripts",
+          "description": "Caminho relativo para a pasta de scripts"
+        },
+        "tomcatmavenspring.webModuleName": {
+          "type": "string",
+          "default": "",
+          "description": "Nome do módulo web (ex: app-web, projeto-web, Netris-web)"
+        },
+        "tomcatmavenspring.autoHotswap": {
+          "type": "boolean",
+          "default": true,
+          "description": "Executar hotswap automaticamente quando arquivos .java mudarem"
+        },
+        "tomcatmavenspring.autoUpdateResources": {
+          "type": "boolean",
+          "default": true,
+          "description": "Atualizar recursos automaticamente quando arquivos de webapp mudarem"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
