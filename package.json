@@ -39,11 +39,6 @@
         "category": "Tomcat"
       },
       {
-        "command": "tomcatmavenspring.reloadTomcat",
-        "title": "Reload Application",
-        "category": "Tomcat"
-      },
-      {
         "command": "tomcatmavenspring.updateClasses",
         "title": "Update Classes (Hotswap)",
         "category": "Tomcat"
@@ -59,48 +54,48 @@
         "category": "Tomcat"
       },
       {
-        "command": "tomcatmavenspring.showAppLogs",
-        "title": "Show Application Logs",
-        "category": "Tomcat"
-      },
-      {
-        "command": "tomcatmavenspring.showTomcatLogs",
-        "title": "Show Tomcat Logs",
+        "command": "tomcatmavenspring.showQuickPick",
+        "title": "Show Tomcat Options",
         "category": "Tomcat"
       }
     ],
     "configuration": {
       "title": "Tomcat Maven Spring",
       "properties": {
-        "tomcatmavenspring.projectPath": {
+        "tomcatmavenspring.PROJECT_PATH": {
+          "type": "string",
+          "default": "${workspaceFolder}",
+          "description": "Caminho para o projeto Spring"
+        },
+        "tomcatmavenspring.JAVA_HOME": {
           "type": "string",
           "default": "",
-          "description": "Caminho para o projeto Spring (onde estão os scripts e arquivo de configuração)"
+          "description": "Home do Java (ex: /usr/lib/jvm/java-1.8.0-openjdk-amd64)"
         },
-        "tomcatmavenspring.envFileName": {
-          "type": "string",
-          "default": "tomcat.env",
-          "description": "Nome do arquivo de configuração do ambiente (ex: tomcat.env, spring.env, netris.env)"
-        },
-        "tomcatmavenspring.scriptsPath": {
-          "type": "string",
-          "default": "scripts",
-          "description": "Caminho relativo para a pasta de scripts"
-        },
-        "tomcatmavenspring.webModuleName": {
+        "tomcatmavenspring.MAVEN_HOME": {
           "type": "string",
           "default": "",
-          "description": "Nome do módulo web (ex: app-web, projeto-web, Netris-web)"
+          "description": "Home do Maven (ex: /opt/apache-maven-3.6.3)"
         },
-        "tomcatmavenspring.autoHotswap": {
-          "type": "boolean",
-          "default": true,
-          "description": "Executar hotswap automaticamente quando arquivos .java mudarem"
+        "tomcatmavenspring.TOMCAT_HOME": {
+          "type": "string",
+          "default": "",
+          "description": "Home do Tomcat (ex: /opt/apache-tomcat-9.0.75)"
         },
-        "tomcatmavenspring.autoUpdateResources": {
-          "type": "boolean",
-          "default": true,
-          "description": "Atualizar recursos automaticamente quando arquivos de webapp mudarem"
+        "tomcatmavenspring.SPRING_PROFILES_ACTIVE": {
+          "type": "string",
+          "default": "desenvolvimento",
+          "description": "Perfil ativo do Spring (ex: desenvolvimento)"
+        },
+        "tomcatmavenspring.JPDA_ADDRESS": {
+          "type": "string",
+          "default": "8000",
+          "description": "Porta do JPDA para debug (ex: 8000)"
+        },
+        "tomcatmavenspring.APP_CONTEXT": {
+          "type": "string",
+          "default": "",
+          "description": "Contexto da aplicação (ex: meuapp-web)"
         }
       }
     }
